@@ -4,7 +4,8 @@
 # Variaveis: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID (secrets). Nao imprime segredos.
 set -Euo pipefail
 
-API_URL="${API_URL:-https://api.exltrade.com/docs-json}"
+# Rota publica e leve: o docs-json passava de 20 s vindo de fora e gerou um CAIU falso (20/10 00:49 UTC).
+API_URL="${API_URL:-https://api.exltrade.com/product/store?type=programa}"
 # Rota publica que a API so responde com "available":true quando alcanca a ingestao.
 RANK_URL="${RANK_URL:-https://api.exltrade.com/torneios/publico/ranking?periodo=semana}"
 STATE_FILE="${STATE_FILE:-estado.txt}"
